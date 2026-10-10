@@ -1,0 +1,67 @@
+[build-system]
+requires = ["hatchling>=1.18"]
+build-backend = "hatchling.build"
+
+[project]
+name = "oi-gateway"
+version = "1.0.0"
+description = "IM gateway for Oi: chat-platform ingress with slash-command handling, threaded conversations and media relay."
+license = { file = "LICENSE" }
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "aiohttp>=3.9",
+    "cryptography>=42.0",
+    "dingtalk-stream>=0.24.3",
+    "discord-py>=2.3",
+    "httpx>=0.27.0",
+    "lark-oapi>=1.5.3",
+    "paho-mqtt>=2.0.0",
+    "pydantic>=2.0",
+    "python-telegram-bot>=21.0",
+    "websockets>=12.0",
+    "wecom-aibot-sdk>=1.0.7",
+]
+
+keywords = ["oi", "agent", "llm"]
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "Intended Audience :: Developers",
+  "License :: OSI Approved :: MIT License",
+  "Operating System :: OS Independent",
+  "Programming Language :: Python :: 3.12",
+  "Topic :: Software Development :: Libraries :: Application Frameworks",
+]
+
+[project.urls]
+Homepage = "https://github.com/akankofik-dev/oi-gateway"
+Source = "https://github.com/akankofik-dev/oi-gateway"
+Issues = "https://github.com/akankofik-dev/oi-gateway/issues"
+
+[project.optional-dependencies]
+dev = [
+    "langchain-core>=1.4.0",
+    "langchain-openai>=1.2.2",
+    "langgraph>=1.2.1",
+    "mypy>=1.9",
+    "oi-harness>=1.0.1",
+    "openai>=2.38.0",
+    "pre-commit>=3.7",
+    "pytest>=8.0",
+    "pytest-asyncio>=0.23",
+    "pytest-cov>=5.0",
+    "ruff>=0.8",
+]
+examples = [
+    "langchain-core>=1.4.0",
+    "langchain-openai>=1.2.2",
+    "langgraph>=1.2.1",
+    "oi-harness>=1.0.1",
+    "openai>=2.38.0",
+]
+
+[tool.hatch.build.targets.wheel]
+packages = ["oi_gateway"]
+
+[tool.hatch.build.targets.sdist]
+include = ["oi_gateway"]
